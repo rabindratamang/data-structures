@@ -1,6 +1,8 @@
+function equal(x,y){
+    return x === y;
+}
+
 /**
- *
- *
  * @param {*} value
  * @param {*} [next=null]
  */
@@ -36,7 +38,9 @@ LinkedList.prototype.prepend = function(value){
     }
 }
 
-LinkedList.prototype.display = function(){
+
+
+LinkedList.prototype.display =function(){
     let node =  this.head;
     while(node){
         console.log(node.value);
@@ -44,9 +48,101 @@ LinkedList.prototype.display = function(){
     }
 }
 
+LinkedList.prototype.delete = function (value){
+    if(!this.head){
+        return null;
+    }
+
+    let deletedNode = null;
+    // If the head must be deleted then make next node that is differ
+    // from the head to be a new head.
+    while (this.head && equal(this.head.value, value)) {
+      deletedNode = this.head;
+      this.head = this.head.next;
+    }
+
+    let currentNode = this.head;
+
+    if (currentNode !== null) {
+      // If next node must be deleted then make next node to be a next next one.
+      while (currentNode.next) {
+        if(equal(currentNode.next.value,value)){
+            deletedNode = currentNode.next;
+            currentNode.next = currentNode.next.next;
+        }else{
+            currentNode = currentNode.next;
+        }
+      }
+    }
+
+    // Check if tail must be deleted.
+    if (equal(this.tail.value, value)) {
+      this.tail = currentNode;
+    }
+    return deletedNode;
+}
+
+
+LinkedList.prototype.deleteTail = function (){
+    const deletedTail = this.tail;
+
+    //in case of onely one node
+    if(this.head === this.tail){
+        this.head = null;
+        this.tail = null;
+        return deletedTail;
+    }
+
+    let currentNode = this.head;
+
+    while(currentNode.next){
+        //tail identified and set to null
+        if(!currentNode.next.next){
+            currentNode.next = null;
+        }else{
+            currentNode = currentNode.next;
+        }
+    }
+    this.tail = currentNode;
+
+    return deletedTail;
+}
+
+LinkedList.prototype.deleteHead = function(){
+    if(!this.head){
+        return null;
+    }
+
+    const deletedHead =  this.head;
+
+    if(this.head.next){
+        this.head = this.head.next;
+    }else{
+        this.head = null;
+        this.tail = null;
+    }
+
+    return deletedHead;
+}
+
+LinkedList.prototype.find = function(value){
+    if(!this.head){
+        return null;
+    }
+    
+    let currentNode = this.head;
+
+    while(currentNode){
+        if(equal(currentNode.value,value)){
+            return currentNode;
+        }
+        currentNode = currentNode.next;
+    }
+    return null;
+}
 
 const list = new LinkedList();
 list.append(8)
-list.prepend(9)
+list.append(9)
 list.append(7)
 list.display();
