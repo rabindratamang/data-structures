@@ -141,8 +141,42 @@ LinkedList.prototype.find = function(value){
     return null;
 }
 
+LinkedList.prototype.arrayToLinkedList = function( data = []){
+    data.forEach(value=>{
+        this.append(value);
+    })
+    return this;
+}
+
+LinkedList.prototype.linkedListToArrayNodes = function(){
+    let currentNode = this.head;
+    let nodes = [];
+    while(currentNode){
+        nodes.push(currentNode);
+        currentNode = currentNode.next;
+    }
+    return nodes;
+}
+
+LinkedList.prototype.linkedListToArrayData = function(){
+    let currentNode = this.head;
+    let nodes = [];
+    while(currentNode){
+        nodes.push(currentNode.value);
+        currentNode = currentNode.next;
+    }
+    return nodes;
+}
+
+/**
+ * @todo reverse link list
+ */
+
 const list = new LinkedList();
 list.append(8)
 list.append(9)
 list.append(7)
+list.arrayToLinkedList([10,11,12])
 list.display();
+
+console.log(list.linkedListToArrayNodes())
