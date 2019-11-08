@@ -12,18 +12,6 @@ function LinkedListNode(value, next = null){
 function LinkedList(){
     this.head = null;
     this.tail = null;
-} 
-/**
- *
- *
- * @param {*} value
- */
-LinkedList.prototype.prepend = function(value){
-    const newNode = new LinkedListNode(value,this.head);
-    this.head = newNode;
-    if(!this.tail){
-        this.tail = newNode;
-    }
 }
 
 LinkedList.prototype.append = function(value){
@@ -40,7 +28,15 @@ LinkedList.prototype.append = function(value){
     return this;
 }
 
-LinkedList.prototype.display =function(){
+LinkedList.prototype.prepend = function(value){
+    const newNode = new LinkedListNode(value,this.head);
+    this.head = newNode;
+    if(!this.tail){
+        this.tail = newNode;
+    }
+}
+
+LinkedList.prototype.display = function(){
     let node =  this.head;
     while(node){
         console.log(node.value);
@@ -48,13 +44,9 @@ LinkedList.prototype.display =function(){
     }
 }
 
+
 const list = new LinkedList();
 list.append(8)
 list.prepend(9)
 list.append(7)
 list.display();
-
-
-
-
-console.log(list)
