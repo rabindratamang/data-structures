@@ -143,6 +143,21 @@ LinkedList.prototype.find = function(value){
 
 LinkedList.prototype.reverse = function(){
 
+    let currentNode = this.head;
+    let prevNode = null;
+    let nextNode = null;
+
+    while (currentNode) {
+      nextNode = currentNode.next;
+      currentNode.next = prevNode;
+      prevNode = currentNode;
+      currentNode = nextNode;
+    }
+
+    this.tail = this.head;
+    this.head = prevNode;
+
+    return this;
 }
 
 LinkedList.prototype.arrayToLinkedList = function( data = []){
@@ -180,7 +195,9 @@ const list = new LinkedList();
 list.append(8)
 list.append(9)
 list.append(7)
-list.arrayToLinkedList([10,11,12])
+// list.arrayToLinkedList([10,11,12])
+list.display();
+list.reverse();
 list.display();
 
 console.log(list.linkedListToArrayNodes())
