@@ -187,10 +187,6 @@ LinkedList.prototype.linkedListToArrayData = function(){
     return nodes;
 }
 
-/**
- * @todo reverse link list
- */
-
 const list = new LinkedList();
 list.append(8)
 list.append(9)
