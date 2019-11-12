@@ -141,6 +141,10 @@ LinkedList.prototype.find = function(value){
     return null;
 }
 
+LinkedList.prototype.reverse = function(){
+
+}
+
 LinkedList.prototype.arrayToLinkedList = function( data = []){
     data.forEach(value=>{
         this.append(value);
