@@ -1,4 +1,3 @@
-const string = 'Hello, this is Rainbow';
 const number = 'dfdsfadfasdfadf 999-999-9999';
 const regex = /\d\d\d-\d\d\d-\d\d\d\d/;
 const match = regex.exec(number);
