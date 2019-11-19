@@ -19,4 +19,3 @@ function arraryReverse(arr = []){
 }
 
 let reverse = arraryReverse([1,2,4,5,6]);
-console.log(reverse);
