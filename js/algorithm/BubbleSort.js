@@ -1,4 +1,9 @@
 
+/**
+ * @param {number[]} arr
+ * @param {number} len
+ * @return {number[]}
+ */
 function bubbleSort(arr, len){
     for(let i = 0; i < len - 1; i++){
         for(let j = 0; j < len - i - 1; j++){
