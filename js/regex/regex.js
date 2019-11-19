@@ -28,3 +28,4 @@ console.log(match)
 // ^ begining
 // $ last
 // \b wordbounding
+// ^\w+$ exactly one word from beginning of line
