@@ -1,3 +1,7 @@
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
 function arraryReverse(arr = []){
     
     let left = 0;
