@@ -1,3 +1,9 @@
+/*
+*
+*@param {setA} 
+*@param {setB}
+*
+/
 function cartesianProduct(setA, setB) {
     if (!setA || !setB || !setA.length || !setB.length) {
       return null;
