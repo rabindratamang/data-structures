@@ -1,3 +1,7 @@
+String.prototype.toArray = function(){
+    return this.split("")
+}
+
 /**
  * @param {*[]} permutationOptions
  * @returns {*[]}
@@ -17,5 +21,8 @@ function permute(permutationOptions = [], set=[], results=[]){
 
 
 // n! output in permutation
-console.log(permute([1,2,3]))
+let input = "ABC";
+
+let permutationOptions = input.toArray()
+let result = permute(permutationOptions)
 
